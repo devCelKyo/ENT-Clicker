@@ -43,10 +43,25 @@ namespace Autoclicker
             listener.deactivate();
         }
 
+        delegate void SetTextCallback(string text);
+
+        private void SetText(string text)
+        {
+            if (ClickingCoordinatesLabel.InvokeRequired)
+            {
+                var callback = new SetTextCallback(SetText);
+                Invoke(callback, new object[] { text });
+            }
+            else
+            {
+                ClickingCoordinatesLabel.Text = text;
+            }
+        }
+
         public void onCoordinatesChanged()
         {
             var coordinates = DataModel.getInstance().savedPoint;
-            ClickingCoordinatesLabel.Text = "(" + coordinates.X + ", " + coordinates.Y + ")";
+            SetText("(" + coordinates.X + ", " + coordinates.Y + ")");
         }
     }
 }

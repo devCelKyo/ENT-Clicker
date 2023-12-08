@@ -19,6 +19,9 @@ namespace Autoclicker.Model
                     case BindingField.stopRecording:
                         CursorRecording.stopRecording();
                         break;
+                    case BindingField.switchClickingState:
+                        Clicker.switchClicking();
+                        break;
                 }
             }
         }

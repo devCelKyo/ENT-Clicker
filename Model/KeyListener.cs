@@ -23,7 +23,7 @@ namespace Autoclicker
             Keyboard = WindowsInput.Capture.Global.KeyboardAsync();
             activated = true;
 
-            Keyboard.KeyDown += proceedKeyDown;
+            Keyboard.KeyUp += proceedKeyUp;
         }
 
         public void deactivate()
@@ -32,7 +32,7 @@ namespace Autoclicker
             activated = false;
         }
 
-        private void proceedKeyDown(object sender, EventSourceEventArgs<KeyDown> e)
+        private void proceedKeyUp(object sender, EventSourceEventArgs<KeyUp> e)
         {
             if (activated && e.Data != null)
             {
