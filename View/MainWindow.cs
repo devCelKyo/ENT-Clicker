@@ -1,15 +1,27 @@
 ﻿using System;
 using System.Windows.Forms;
+using Autoclicker.Model;
 using Autoclicker.View;
 
 namespace Autoclicker
 {
-    public partial class MainWindow : BaseWindow
+    public partial class MainWindow : BaseWindow, ICoordinatesListener
     {
+        private static MainWindow instance;
+
         DataModel model;
         KeyListener listener;
 
-        public MainWindow()
+        public static MainWindow getInstance()
+        {
+            if (instance == null)
+            {
+                instance = new MainWindow();
+            }
+            return instance;
+        }
+
+        private MainWindow()
         {
             InitializeComponent();
             model = DataModel.getInstance();
@@ -20,6 +32,7 @@ namespace Autoclicker
         {
             listener.deactivate();
             var menu = new BindingsMenu(model.bindingsDataModel);
+            menu.StartPosition = FormStartPosition.CenterParent;
             menu.ShowDialog();
             listener.activate();
         }
@@ -28,6 +41,12 @@ namespace Autoclicker
         {
             base.OnFormClosing(e);
             listener.deactivate();
+        }
+
+        public void onCoordinatesChanged()
+        {
+            var coordinates = DataModel.getInstance().savedPoint;
+            ClickingCoordinatesLabel.Text = "(" + coordinates.X + ", " + coordinates.Y + ")";
         }
     }
 }

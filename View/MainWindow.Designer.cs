@@ -32,6 +32,8 @@
             this.BindingsMenuButton = new System.Windows.Forms.Label();
             this.Title = new System.Windows.Forms.Label();
             this.closeButton1 = new Autoclicker.CloseButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ClickingCoordinatesLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +63,7 @@
             // 
             this.Title.AutoSize = true;
             this.Title.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Title.Location = new System.Drawing.Point(164, 9);
             this.Title.Name = "Title";
             this.Title.Size = new System.Drawing.Size(184, 32);
@@ -74,12 +77,36 @@
             this.closeButton1.Size = new System.Drawing.Size(60, 28);
             this.closeButton1.TabIndex = 3;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(165, 60);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(134, 21);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Clicking location:";
+            // 
+            // ClickingCoordinatesLabel
+            // 
+            this.ClickingCoordinatesLabel.AutoSize = true;
+            this.ClickingCoordinatesLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClickingCoordinatesLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ClickingCoordinatesLabel.Location = new System.Drawing.Point(298, 60);
+            this.ClickingCoordinatesLabel.Name = "ClickingCoordinatesLabel";
+            this.ClickingCoordinatesLabel.Size = new System.Drawing.Size(50, 21);
+            this.ClickingCoordinatesLabel.TabIndex = 5;
+            this.ClickingCoordinatesLabel.Text = "None";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(488, 201);
+            this.Controls.Add(this.ClickingCoordinatesLabel);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.closeButton1);
             this.Controls.Add(this.Title);
             this.Controls.Add(this.panel1);
@@ -98,5 +125,7 @@
         private System.Windows.Forms.Label Title;
         private System.Windows.Forms.Label BindingsMenuButton;
         private CloseButton closeButton1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label ClickingCoordinatesLabel;
     }
 }
